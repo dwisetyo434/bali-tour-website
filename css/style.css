@@ -1,0 +1,994 @@
+/* Styling Umum: Mengatur font, margin, padding dasar untuk seluruh halaman */
+body {
+    font-family: 'Arial', sans-serif; /* Menggunakan font Arial atau sans-serif */
+    margin: 0; /* Menghilangkan margin default browser */
+    padding: 0; /* Menghilangkan padding default browser */
+    background-color: #f4f4f4; /* Warna background abu-abu terang */
+    color: #333; /* Warna teks utama */
+    line-height: 1.6; /* Tinggi baris untuk keterbacaan */
+}
+
+/* Container: Untuk membatasi lebar konten agar rapi di tengah */
+.container {
+    width: 85%; /* Lebar konten 85% dari layar */
+    max-width: 1200px; /* Lebar maksimum 1200px */
+    margin: 0 auto; /* Pusatkan container secara horizontal */
+    padding: 20px 0; /* Padding atas dan bawah */
+}
+
+/* Header: Bagian atas website */
+header {
+    background-color: #007bff; /* Warna biru cerah */
+    color: white; /* Warna teks putih */
+    padding: 15px 0; /* Padding atas dan bawah */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Efek bayangan */
+    position: sticky; /* Membuat header tetap di atas saat scroll */
+    top: 0; /* Jarak dari atas layar */
+    z-index: 1000; /* Memastikan header berada di atas elemen lain */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transisi untuk efek scroll */
+}
+
+/* Efek header saat discroll (diaktifkan oleh JavaScript) */
+header.scrolled {
+    background-color: rgba(0, 123, 255, 0.95); /* Sedikit transparan saat discroll */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    margin: 0; /* Menghilangkan margin default pada h1 */
+    float: left; /* Membuat h1 berada di kiri */
+    font-size: 30px; /* Ukuran font judul */
+    letter-spacing: 1px; /* Jarak antar huruf */
+}
+
+/* Navigasi */
+header nav ul {
+    list-style: none; /* Menghilangkan bullet point dari daftar */
+    margin: 0; /* Menghilangkan margin default */
+    padding: 0; /* Menghilangkan padding default */
+    float: right; /* Membuat navigasi berada di kanan */
+}
+
+header nav ul li {
+    display: inline-block; /* Membuat item navigasi sejajar */
+    margin-left: 25px; /* Jarak antar item navigasi */
+}
+
+header nav ul li a {
+    color: white; /* Warna teks link putih */
+    text-decoration: none; /* Menghilangkan garis bawah link */
+    font-weight: bold; /* Teks tebal */
+    transition: color 0.3s ease; /* Transisi warna saat hover */
+}
+
+header nav ul li a:hover {
+    color: #ffc107; /* Warna kuning saat di-hover */
+}
+
+/* Clearfix untuk header agar elemen float tidak mengganggu layout */
+header .container::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Hero Section: Bagian utama di halaman depan (Beranda) */
+#hero {
+    /* MENGGUNAKAN GAMBAR bali1.jpeg SEBAGAI BACKGROUND UNTUK HALAMAN BERANDA */
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/bali1.jpeg') no-repeat center center/cover;
+    color: white; /* Warna teks putih */
+    text-align: center; /* Teks di tengah */
+    padding: 120px 0; /* Padding atas dan bawah */
+    position: relative; /* Penting untuk overlay dan penempatan konten */
+}
+
+#hero h2 {
+    font-size: 52px; /* Ukuran font judul besar */
+    margin-bottom: 20px; /* Jarak bawah */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Bayangan teks untuk keterbacaan */
+}
+
+#hero p {
+    font-size: 22px; /* Ukuran font paragraf */
+    margin-bottom: 40px; /* Jarak bawah */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7); /* Bayangan teks */
+}
+
+/* Tombol Umum */
+.btn {
+    display: inline-block; /* Agar bisa diberi padding dan margin */
+    background-color: #ffc107; /* Warna kuning */
+    color: #333; /* Warna teks gelap */
+    padding: 14px 30px; /* Padding tombol */
+    text-decoration: none; /* Menghilangkan garis bawah link */
+    border-radius: 8px; /* Sudut tombol melengkung */
+    font-weight: bold; /* Teks tebal */
+    font-size: 18px; /* Ukuran font tombol */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transisi saat hover */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Bayangan tombol */
+}
+
+.btn:hover {
+    background-color: #e0a800; /* Warna kuning lebih gelap saat hover */
+    transform: translateY(-2px); /* Efek sedikit terangkat saat hover */
+}
+
+/* Tombol Kecil */
+.btn-small {
+    display: inline-block; /* Agar bisa diberi padding dan margin */
+    background-color: #28a745; /* Warna hijau */
+    color: white; /* Warna teks putih */
+    padding: 10px 20px; /* Padding tombol */
+    text-decoration: none; /* Menghilangkan garis bawah link */
+    border-radius: 5px; /* Sudut melengkung */
+    font-size: 15px; /* Ukuran font */
+    transition: background-color 0.3s ease; /* Transisi warna */
+}
+
+.btn-small:hover {
+    background-color: #218838; /* Warna hijau lebih gelap saat hover */
+}
+
+/* Styling umum untuk setiap bagian (section) */
+section {
+    padding: 80px 0; /* Padding atas dan bawah untuk setiap section */
+    text-align: center; /* Teks di tengah */
+}
+
+section:nth-child(even) { /* Untuk section genap (ke-2, ke-4, dst.) */
+    background-color: #eef7ff; /* Warna background sedikit berbeda */
+}
+
+section h2 {
+    font-size: 42px; /* Ukuran font judul section */
+    margin-bottom: 50px; /* Jarak bawah judul */
+    color: #007bff; /* Warna judul */
+    position: relative;
+    display: inline-block;
+}
+
+section h2::after { /* Garis bawah dekoratif pada judul section */
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: #ffc107; /* Warna kuning */
+    border-radius: 2px;
+}
+
+
+/* Grid untuk Tour Items, Features, Contact */
+.tour-grid, .features-grid, .contact-grid {
+    display: grid; /* Menggunakan CSS Grid untuk layout */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Jarak antar item di grid */
+    margin-top: 30px;
+}
+
+/* Styling untuk setiap item tur */
+.tour-item {
+    border-radius: 10px; /* Sudut melengkung */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1); /* Bayangan yang lebih menonjol */
+    overflow: hidden; /* Memastikan konten tidak keluar dari batas */
+    text-align: left; /* Teks rata kiri */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transisi saat hover */
+    position: relative; /* Penting untuk overlay dan penempatan konten di atas gambar */
+    min-height: 350px; /* Tinggi minimum agar gambar background terlihat */
+    display: flex; /* Untuk menata konten di dalam card */
+    flex-direction: column; /* Konten disusun vertikal */
+    justify-content: flex-end; /* Mendorong konten ke bawah kartu */
+    padding: 20px; /* Padding di dalam kartu */
+    color: white; /* Warna teks default untuk item tur */
+}
+
+/* Overlay untuk setiap tour-item agar teks mudah dibaca */
+.tour-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.2)); /* Gradient gelap dari bawah ke atas */
+    z-index: 1; /* Di atas gambar, di bawah teks */
+}
+
+/* Pastikan teks dan tombol berada di atas overlay */
+.tour-item h3, .tour-item p, .tour-item .btn-small {
+    position: relative;
+    z-index: 2;
+}
+
+.tour-item:hover {
+    transform: translateY(-8px); /* Efek terangkat saat hover */
+    box-shadow: 0 12px 20px rgba(0,0,0,0.15); /* Bayangan lebih besar saat hover */
+}
+
+.tour-item h3 {
+    margin: 0 0 10px 0; /* Menghilangkan margin default pada h3, tambahkan margin-bottom */
+    font-size: 28px; /* Ukuran font judul item */
+    color: white; /* Warna teks putih */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8); /* Bayangan teks untuk keterbacaan */
+}
+
+.tour-item p {
+    margin: 0 0 20px 0; /* Menghilangkan margin default, tambahkan margin-bottom */
+    font-size: 17px; /* Ukuran font paragraf */
+    line-height: 1.6; /* Tinggi baris */
+    color: #f0f0f0; /* Warna teks sedikit abu-abu terang */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8); /* Bayangan teks */
+}
+
+.tour-item .btn-small {
+    display: inline-block; /* Tombol menjadi inline-block */
+    width: auto; /* Lebar tombol otomatis */
+    text-align: center; /* Teks di tengah */
+    align-self: flex-start; /* Posisikan tombol ke kiri bawah */
+}
+
+/* Background untuk South Bali Adventure (di index.html) */
+.tour-item.south-bali {
+    background: url('../images/uluwatu_temple.jpeg') no-repeat center center/cover;
+}
+
+/* Background untuk North Bali Discovery (di index.html) */
+.tour-item.north-bali {
+    background: url('../images/bali_beach.jpeg') no-repeat center center/cover;
+}
+
+
+/* Styling untuk item fitur (Mengapa Memilih Kami) */
+.feature-item {
+    padding: 30px; /* Padding dalam item */
+    background-color: white; /* Background putih */
+    border-radius: 10px; /* Sudut melengkung */
+    box-shadow: 0 5px 12px rgba(0,0,0,0.08); /* Bayangan */
+    transition: transform 0.3s ease; /* Transisi saat hover */
+}
+
+.feature-item:hover {
+    transform: translateY(-5px); /* Efek terangkat saat hover */
+}
+
+.feature-item h3 {
+    margin-top: 0; /* Menghilangkan margin atas */
+    color: #007bff; /* Warna biru */
+    font-size: 26px; /* Ukuran font judul fitur */
+    margin-bottom: 15px;
+}
+
+.feature-item p {
+    font-size: 17px; /* Ukuran font paragraf */
+    line-height: 1.6; /* Tinggi baris */
+}
+
+/* Styling Halaman Daftar Paket Tur */
+#package-list {
+    text-align: center; /* Judul section di tengah */
+    /* MENGGUNAKAN GAMBAR bali2.jpeg SEBAGAI BACKGROUND UNTUK HALAMAN PAKET TUR */
+    background: url('../images/bali2.jpeg') no-repeat center center fixed; /* fixed agar gambar tidak ikut scroll */
+    background-size: cover; /* Menutupi seluruh area */
+    color: #333; /* Pastikan teks di atas gambar tetap terbaca */
+    padding: 80px 0; /* Padding section */
+    position: relative;
+    z-index: 1; /* Pastikan konten di atas background */
+}
+
+/* Overlay putih semi-transparan untuk section package-list agar teks lebih terbaca */
+#package-list::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.7); /* Overlay putih semi-transparan */
+    z-index: -1; /* Letakkan di belakang konten */
+}
+
+/* Pastikan elemen di dalam package-list memiliki background putih agar kontras dengan background gambar */
+.package-card {
+    background-color: rgba(255, 255, 255, 0.9); /* Sedikit transparan agar background terlihat */
+    display: flex; /* Menggunakan Flexbox untuk layout card */
+    border-radius: 10px; /* Sudut melengkung */
+    box-shadow: 0 8px 18px rgba(0,0,0,0.1); /* Bayangan */
+    margin-bottom: 40px; /* Jarak bawah antar card */
+    overflow: hidden; /* Memastikan gambar tidak keluar */
+    text-align: left; /* Teks rata kiri */
+    transition: transform 0.3s ease; /* Transisi saat hover */
+}
+
+.package-card:hover {
+    transform: translateY(-5px); /* Efek terangkat saat hover */
+}
+
+/* Hapus .package-card img karena custom-package akan menggunakan background */
+.package-card img {
+    width: 45%; /* Lebar gambar 45% dari card */
+    height: 300px; /* Tinggi gambar tetap */
+    object-fit: cover; /* Memastikan gambar menutupi area */
+    display: block;
+}
+
+.package-info {
+    width: 55%; /* Lebar info 55% dari card */
+    padding: 30px; /* Padding dalam info */
+    display: flex; /* Menggunakan flexbox untuk konten di dalam info */
+    flex-direction: column; /* Konten disusun vertikal */
+    justify-content: space-between; /* Membuat spasi di antara elemen */
+}
+
+.package-info h3 {
+    margin-top: 0; /* Menghilangkan margin atas */
+    color: #007bff; /* Warna biru */
+    font-size: 28px; /* Ukuran font judul paket */
+    margin-bottom: 10px;
+}
+
+.package-info h4 {
+    color: #555;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.package-info ul {
+    list-style: disc; /* Bullet point */
+    margin-left: 25px; /* Indentasi list */
+    margin-bottom: 20px; /* Jarak bawah */
+    padding: 0;
+    font-size: 16px;
+    color: #444;
+}
+
+.package-info p {
+    margin-bottom: 15px; /* Jarak bawah */
+    font-size: 17px;
+}
+
+.package-info .price {
+    font-weight: bold; /* Teks tebal */
+    font-size: 24px; /* Ukuran font harga */
+    color: #dc3545; /* Warna merah */
+    margin-top: auto; /* Mendorong harga ke bawah */
+}
+
+/* Styling untuk kartu paket dengan background gambar (Uluwatu & Beach) */
+.package-card.package-uluwatu {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/uluwatu_temple.jpeg') no-repeat center center/cover;
+    color: white;
+    display: block; /* Mengatur ini sebagai block untuk background */
+    text-align: center;
+    padding: 40px 20px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+    min-height: 400px;
+    position: relative;
+    z-index: 0;
+    /* Pastikan Anda menghapus tag <img> di packages.html untuk card ini */
+    display: flex; /* Kembalikan flex untuk penataan info di tengah */
+    flex-direction: column;
+    justify-content: flex-end; /* Mendorong konten ke bawah kartu */
+}
+.package-card.package-uluwatu .package-info {
+    background-color: transparent;
+    width: 100%;
+    padding: 0;
+    position: relative;
+    z-index: 2;
+}
+.package-card.package-uluwatu h3,
+.package-card.package-uluwatu h4,
+.package-card.package-uluwatu p,
+.package-card.package-uluwatu ul,
+.package-card.package-uluwatu .price,
+.package-card.package-uluwatu .btn-small {
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+.package-card.package-uluwatu h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+.package-card.package-uluwatu .btn-small {
+    background-color: #ffc107;
+    color: #333;
+}
+.package-card.package-uluwatu .btn-small:hover {
+    background-color: #e0a800;
+}
+
+.package-card.package-beach {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/bali_beach.jpeg') no-repeat center center/cover;
+    color: white;
+    display: block; /* Mengatur ini sebagai block untuk background */
+    text-align: center;
+    padding: 40px 20px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+    min-height: 400px;
+    position: relative;
+    z-index: 0;
+    /* Pastikan Anda menghapus tag <img> di packages.html untuk card ini */
+    display: flex; /* Kembalikan flex untuk penataan info di tengah */
+    flex-direction: column;
+    justify-content: flex-end; /* Mendorong konten ke bawah kartu */
+}
+.package-card.package-beach .package-info {
+    background-color: transparent;
+    width: 100%;
+    padding: 0;
+    position: relative;
+    z-index: 2;
+}
+.package-card.package-beach h3,
+.package-card.package-beach h4,
+.package-card.package-beach p,
+.package-card.package-beach ul,
+.package-card.package-beach .price,
+.package-card.package-beach .btn-small {
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+.package-card.package-beach h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+.package-card.package-beach .btn-small {
+    background-color: #ffc107;
+    color: #333;
+}
+.package-card.package-beach .btn-small:hover {
+    background-color: #e0a800;
+}
+
+
+/* Styling untuk card paket kustom */
+.package-card.custom-package {
+    display: block; /* Menjadikan block kembali */
+    text-align: center; /* Teks di tengah */
+    padding: 40px; /* Padding lebih besar */
+    /* Hapus background color yang lama */
+    /* background-color: rgba(233, 247, 254, 0.9); */
+    /* Tambahkan background gambar bali3.jpeg dengan overlay */
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('../images/bali3.jpeg') no-repeat center center/cover;
+    border: 2px dashed #007bff; /* Border putus-putus */
+    /* Ganti warna teks agar kontras dengan background baru */
+    color: white;
+    box-shadow: none; /* Tanpa bayangan */
+    /* Pastikan konten di atas background jika ada overlay */
+    position: relative;
+    z-index: 0;
+}
+
+/* Pastikan konten di atas overlay */
+.package-card.custom-package h3,
+.package-card.custom-package p,
+.package-card.custom-package .btn {
+    position: relative;
+    z-index: 2;
+}
+
+.package-card.custom-package h3 {
+    font-size: 32px;
+    color: white; /* Warna teks putih */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7); /* Tambahkan bayangan teks */
+}
+.package-card.custom-package p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: white; /* Warna teks putih */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7); /* Tambahkan bayangan teks */
+}
+/* Override warna tombol agar tetap terlihat */
+.package-card.custom-package .btn {
+    background-color: #ffc107;
+    color: #333;
+}
+.package-card.custom-package .btn:hover {
+    background-color: #e0a800;
+}
+
+
+/* Styling Halaman Kontak */
+#contact-us {
+    text-align: center; /* Judul section di tengah */
+}
+
+.contact-grid {
+    display: grid; /* Menggunakan CSS Grid */
+    grid-template-columns: 1.2fr 2fr; /* Kolom informasi kontak lebih kecil dari form */
+    align-items: start; /* Mengatur item dari atas */
+    text-align: left; /* Teks rata kiri */
+    gap: 30px; /* Jarak antar kolom */
+}
+
+.contact-info, .contact-form {
+    padding: 30px; /* Padding dalam elemen */
+    background-color: white; /* Background putih */
+    border-radius: 10px; /* Sudut melengkung */
+    box-shadow: 0 5px 12px rgba(0,0,0,0.08); /* Bayangan */
+}
+
+.contact-info h3 {
+    color: #007bff; /* Warna biru */
+    margin-top: 0; /* Menghilangkan margin atas */
+    margin-bottom: 20px; /* Jarak bawah */
+    font-size: 24px;
+}
+
+.contact-info p {
+    margin-bottom: 12px; /* Jarak bawah antar paragraf */
+    font-size: 17px;
+}
+
+.contact-info a {
+    color: #007bff; /* Warna biru untuk link */
+    text-decoration: none; /* Menghilangkan garis bawah */
+    transition: color 0.3s ease; /* Transisi warna */
+}
+
+.contact-info a:hover {
+    color: #0056b3; /* Warna biru lebih gelap saat hover */
+    text-decoration: underline; /* Garis bawah saat hover */
+}
+
+/* Styling Formulir Kontak */
+.contact-form h3 {
+    color: #007bff;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.form-group {
+    margin-bottom: 20px; /* Jarak bawah antar group form */
+}
+
+.form-group label {
+    display: block; /* Label menjadi block agar di atas input */
+    margin-bottom: 8px; /* Jarak bawah label */
+    font-weight: bold; /* Teks tebal */
+    font-size: 17px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    width: calc(100% - 24px); /* Lebar input dikurangi padding dan border */
+    padding: 12px; /* Padding dalam input */
+    border: 1px solid #ccc; /* Border abu-abu */
+    border-radius: 6px; /* Sudut melengkung */
+    font-size: 16px; /* Ukuran font input */
+    box-sizing: border-box; /* Memastikan padding dan border tidak menambah lebar */
+}
+
+.form-group textarea {
+    resize: vertical; /* Memungkinkan textarea di-resize vertikal */
+    min-height: 120px; /* Tinggi minimum textarea */
+}
+
+.contact-form .btn {
+    width: auto; /* Lebar tombol otomatis */
+    padding: 12px 25px; /* Padding tombol */
+    font-size: 17px;
+    cursor: pointer; /* Kursor menjadi tangan saat di atas tombol */
+}
+
+.form-note {
+    font-size: 14px;
+    color: #666;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+/* Peta Lokasi */
+.map-container {
+    margin-top: 50px; /* Jarak atas */
+    background-color: white; /* Background putih */
+    border-radius: 10px; /* Sudut melengkung */
+    box-shadow: 0 8px 18px rgba(0,0,0,0.1); /* Bayangan */
+    overflow: hidden; /* Memastikan iframe tidak keluar */
+    padding-bottom: 20px; /* Padding di bawah judul peta */
+}
+
+.map-container h3 {
+    text-align: center; /* Judul peta di tengah */
+    color: #007bff;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.map-container iframe {
+    width: 100%; /* Lebar iframe 100% */
+    height: 400px; /* Tinggi iframe */
+    border: 0; /* Menghilangkan border default iframe */
+    border-radius: 0 0 10px 10px; /* Sudut bawah melengkung */
+    display: block; /* Menghilangkan ruang kosong di bawah iframe */
+}
+
+/* Footer: Bagian bawah website */
+footer {
+    background-color: #2c3e50; /* Warna biru tua keabu-abuan */
+    color: white; /* Warna teks putih */
+    text-align: center; /* Teks di tengah */
+    padding: 25px 0; /* Padding atas dan bawah */
+    margin-top: 50px; /* Jarak atas */
+}
+
+footer p {
+    margin: 0; /* Menghilangkan margin default */
+    font-size: 15px; /* Ukuran font */
+}
+
+.social-links {
+    margin-top: 15px; /* Jarak atas */
+}
+
+.social-links a {
+    color: white; /* Warna link putih */
+    text-decoration: none; /* Menghilangkan garis bawah */
+    margin: 0 12px; /* Jarak antar link sosial */
+    font-size: 16px;
+    transition: color 0.3s ease; /* Transisi warna */
+}
+
+.social-links a:hover {
+    color: #ffc107; /* Warna kuning saat hover */
+}
+
+/* --- Styling Halaman Sewa Mobil & Supir --- */
+
+#car-rental-hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../images/bali_road.jpeg') no-repeat center center/cover;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+
+#car-rental-hero h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: white; /* Pastikan judul putih */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+#car-rental-hero p {
+    font-size: 20px;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+#vehicle-types {
+    padding: 80px 0;
+    text-align: center;
+}
+
+#vehicle-types h2 {
+    color: #007bff;
+    font-size: 42px;
+    margin-bottom: 50px;
+}
+
+.vehicle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Lebih fleksibel untuk berbagai ukuran layar */
+    gap: 30px;
+}
+
+.vehicle-item {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding-bottom: 20px; /* Tambahkan padding bawah */
+    display: flex; /* Menggunakan flexbox untuk layout internal item */
+    flex-direction: column; /* Konten disusun vertikal */
+    justify-content: space-between; /* Menata konten agar rapi */
+}
+
+.vehicle-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+}
+
+.vehicle-item img {
+    width: 100%;
+    height: 220px; /* Tinggi gambar kendaraan */
+    object-fit: cover;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.vehicle-item h3 {
+    color: #007bff;
+    font-size: 26px;
+    margin-bottom: 10px;
+    padding: 0 15px; /* Tambahkan padding horizontal */
+}
+
+.vehicle-item p {
+    font-size: 17px;
+    color: #555;
+    margin-bottom: 8px;
+    padding: 0 15px;
+}
+
+.vehicle-item .price {
+    font-weight: bold;
+    font-size: 22px;
+    color: #dc3545;
+    margin-top: 15px;
+    margin-bottom: 20px; /* Jarak antara harga dan tombol */
+    padding: 0 15px;
+}
+
+.vehicle-item .btn-small {
+    margin: 0 auto; /* Pusatkan tombol */
+    width: fit-content; /* Sesuaikan lebar tombol dengan konten */
+}
+
+#why-choose-car-rental {
+    background-color: #eef7ff;
+    padding: 80px 0;
+    text-align: center;
+}
+
+#why-choose-car-rental h2 {
+    color: #007bff;
+    font-size: 42px;
+    margin-bottom: 50px;
+}
+
+#how-to-book {
+    padding: 80px 0;
+    text-align: center;
+}
+
+#how-to-book h2 {
+    color: #007bff;
+    font-size: 42px;
+    margin-bottom: 30px;
+}
+
+#how-to-book p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #444;
+}
+
+.booking-steps {
+    list-style: none; /* Hapus bullet default */
+    counter-reset: my-counter; /* Reset counter */
+    padding: 0;
+    margin: 0 auto 40px auto;
+    max-width: 700px;
+    text-align: left;
+}
+
+.booking-steps li {
+    font-size: 18px;
+    margin-bottom: 15px;
+    padding-left: 40px;
+    position: relative;
+    color: #333;
+}
+
+.booking-steps li::before {
+    content: counter(my-counter); /* Tampilkan nomor */
+    counter-increment: my-counter; /* Tambah nomor */
+    background-color: #007bff;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: bold;
+}
+
+/* Desain Responsif: Penyesuaian untuk layar yang lebih kecil */
+@media (max-width: 992px) { /* Untuk tablet dan layar kecil lainnya */
+    .container {
+        width: 90%;
+    }
+
+    header h1 {
+        font-size: 26px;
+    }
+
+    header nav ul li {
+        margin-left: 15px;
+    }
+
+    #hero h2 {
+        font-size: 44px;
+    }
+
+    #hero p {
+        font-size: 19px;
+    }
+
+    section h2 {
+        font-size: 36px;
+    }
+
+    .package-card {
+        flex-direction: column; /* Card paket tur menjadi vertikal */
+    }
+
+    .package-card img, .package-info {
+        width: 100%; /* Gambar dan info memenuhi lebar card */
+        padding: 20px;
+    }
+
+    .package-card img {
+        height: 250px; /* Tinggi gambar menyesuaikan */
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr; /* Kolom kontak menjadi satu tumpuk */
+    }
+
+    .contact-info, .contact-form {
+        margin-bottom: 30px; /* Jarak antar kolom kontak */
+    }
+
+    .package-card.package-uluwatu,
+    .package-card.package-beach {
+        min-height: 300px; /* Sesuaikan tinggi minimum di mobile */
+        padding: 30px 15px;
+    }
+    
+    /* Responsif untuk halaman Sewa Mobil */
+    #car-rental-hero h2 {
+        font-size: 40px;
+    }
+    #car-rental-hero p {
+        font-size: 18px;
+    }
+    #vehicle-types h2, #why-choose-car-rental h2, #how-to-book h2 {
+        font-size: 38px;
+    }
+    .vehicle-item img {
+        height: 180px;
+    }
+}
+
+@media (max-width: 768px) { /* Untuk smartphone */
+    header {
+        text-align: center; /* Header di tengah */
+        padding: 10px 0;
+    }
+
+    header h1 {
+        float: none; /* H1 tidak float */
+        margin-bottom: 10px;
+    }
+
+    header nav ul {
+        float: none; /* Navigasi tidak float */
+        display: flex; /* Menggunakan flexbox untuk navigasi */
+        justify-content: center; /* Pusatkan item navigasi */
+        flex-wrap: wrap; /* Izinkan wrap jika terlalu panjang */
+    }
+
+    header nav ul li {
+        margin: 5px 10px; /* Margin lebih kecil */
+    }
+
+    #hero {
+        padding: 80px 0;
+    }
+
+    #hero h2 {
+        font-size: 36px;
+    }
+
+    #hero p {
+        font-size: 16px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    section {
+        padding: 50px 0;
+    }
+
+    section h2 {
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+
+    .tour-grid, .features-grid {
+        grid-template-columns: 1fr; /* Item menjadi satu kolom */
+    }
+
+    .map-container {
+        margin-top: 30px;
+    }
+
+    .map-container iframe {
+        height: 300px; /* Tinggi iframe lebih kecil */
+    }
+    
+    /* Responsif untuk halaman Sewa Mobil */
+    #car-rental-hero h2 {
+        font-size: 38px;
+    }
+    #car-rental-hero p {
+        font-size: 18px;
+    }
+    #vehicle-types h2, #why-choose-car-rental h2, #how-to-book h2 {
+        font-size: 36px;
+    }
+    .vehicle-item img {
+        height: 200px;
+    }
+    .vehicle-grid {
+        grid-template-columns: 1fr; /* Satu kolom untuk mobile agar lebih mudah dibaca */
+    }
+}
+
+@media (max-width: 480px) { /* Untuk smartphone kecil */
+    .container {
+        width: 95%;
+    }
+
+    header nav ul li {
+        margin: 5px 8px;
+    }
+
+    #hero h2 {
+        font-size: 28px;
+    }
+
+    #hero p {
+        font-size: 14px;
+    }
+
+    section h2 {
+        font-size: 26px;
+    }
+
+    .tour-item h3, .feature-item h3, .package-info h3, .contact-info h3, .contact-form h3, .map-container h3 {
+        font-size: 22px;
+    }
+
+    .package-info .price {
+        font-size: 20px;
+    }
+
+    .contact-form .btn {
+        width: 100%; /* Tombol form memenuhi lebar */
+    }
+    
+    /* Responsif untuk halaman Sewa Mobil */
+    #car-rental-hero h2 {
+        font-size: 30px;
+    }
+    #car-rental-hero p {
+        font-size: 16px;
+    }
+    #vehicle-types h2, #why-choose-car-rental h2, #how-to-book h2 {
+        font-size: 28px;
+    }
+    .vehicle-item h3 {
+        font-size: 22px;
+    }
+    .vehicle-item p, .booking-steps li {
+        font-size: 16px;
+    }
+}
