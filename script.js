@@ -40,13 +40,55 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Anda bisa menambahkan fitur interaktif lainnya di sini di masa mendatang. ---
-    // Ini adalah tempat yang tepat untuk menambahkan JavaScript untuk:
-    // 1. Validasi formulir kontak yang lebih canggih sebelum dikirim.
-    // 2. Efek animasi saat scroll (misal: elemen muncul perlahan - "reveal on scroll").
-    // 3. Carousel atau slideshow gambar untuk galeri atau di hero section.
-    // 4. Integrasi dengan API pihak ketiga (misal: menampilkan cuaca Bali, kurs mata uang).
-    // 5. Lightbox atau modal untuk melihat gambar tur lebih besar saat diklik.
-    // 6. Tombol "Kembali ke Atas" (Scroll-to-top button) yang muncul saat discroll.
-    // 7. Fungsionalitas untuk mengisi otomatis formulir kontak berdasarkan parameter URL (seperti "?package=south-bali").
+    // --- Implementasi Pengiriman Formulir Pemesanan ---
+    // Mengambil elemen formulir pemesanan.
+    const pemesananForm = document.getElementById('pemesananForm');
+    const pesanStatusDiv = document.getElementById('pesanStatus');
+
+    // Memastikan formulir ditemukan sebelum menambahkan event listener.
+    if (pemesananForm && pesanStatusDiv) {
+        pemesananForm.addEventListener('submit', async function(event) {
+            event.preventDefault(); // Mencegah form submit default
+
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            pesanStatusDiv.textContent = 'Mengirim pesanan...';
+            pesanStatusDiv.style.color = 'blue';
+
+            try {
+                // URL endpoint Netlify Function Anda
+                // GANTI DENGAN URL API BACKEND ANDA YANG SEBENARNYA!
+                // Contoh: 'https://namasitusanda.netlify.app/.netlify/functions/send-booking'
+                const backendUrl = '/.https://strong-llama-e01e44.netlify.app/'; // Path relatif jika di-deploy di Netlify
+
+                const response = await fetch(backendUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    pesanStatusDiv.textContent = 'Pemesanan berhasil dikirim! ' + (result.message || '');
+                    pesanStatusDiv.style.color = 'green';
+                    form.reset(); // Mengosongkan formulir setelah sukses
+                } else {
+                    const errorText = await response.text();
+                    pesanStatusDiv.textContent = 'Gagal mengirim pesanan: ' + errorText;
+                    pesanStatusDiv.style.color = 'red';
+                    console.error('Backend Error:', errorText);
+                }
+            } catch (error) {
+                console.error('Error Jaringan:', error);
+                pesanStatusDiv.textContent = 'Terjadi kesalahan jaringan atau server.';
+                pesanStatusDiv.style.color = 'red';
+            }
+        });
+    } else {
+        console.error("Formulir pemesanan atau div status tidak ditemukan. Pastikan ID 'pemesananForm' dan 'pesanStatus' ada di HTML Anda.");
+    }
 });
