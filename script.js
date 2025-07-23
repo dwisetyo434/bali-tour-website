@@ -59,9 +59,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
             try {
                 // URL endpoint Netlify Function Anda
-                // GANTI DENGAN URL API BACKEND ANDA YANG SEBENARNYA!
-                // Contoh: 'https://namasitusanda.netlify.app/.netlify/functions/send-booking'
-                const backendUrl = '/.https://strong-llama-e01e44.netlify.app/'; // Path relatif jika di-deploy di Netlify
+                // Perbaiki URL ini!
+                // Jika website Anda di-deploy di Netlify dan fungsi ada di sub-domain yang sama:
+                const backendUrl = '/.netlify/functions/send-booking'; 
+                
+                // ATAU Jika website Anda di-deploy di tempat lain (misal GitHub Pages)
+                // dan Anda memanggil Netlify Function di domain terpisah:
+                // const backendUrl = 'https://strong-llama-e01e44.netlify.app/.netlify/functions/send-booking'; 
+                // CATATAN: Pilihan kedua ini sering butuh penanganan CORS lebih cermat di fungsi backend.
+                // Untuk kasus Anda, karena web dan fungsi ada di Netlify, gunakan yang pertama.
+
 
                 const response = await fetch(backendUrl, {
                     method: 'POST',
@@ -71,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     body: JSON.stringify(data)
                 });
 
-                if (response.ok) {
+                if (response.ok) { // Status 200-299
                     const result = await response.json();
                     pesanStatusDiv.textContent = 'Pemesanan berhasil dikirim! ' + (result.message || '');
                     pesanStatusDiv.style.color = 'green';
@@ -80,10 +87,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     const errorText = await response.text();
                     pesanStatusDiv.textContent = 'Gagal mengirim pesanan: ' + errorText;
                     pesanStatusDiv.style.color = 'red';
-                    console.error('Backend Error:', errorText);
+                    console.error('Backend Error (Status ' + response.status + '):', errorText);
                 }
             } catch (error) {
-                console.error('Error Jaringan:', error);
+                console.error('Error Jaringan atau JavaScript:', error);
                 pesanStatusDiv.textContent = 'Terjadi kesalahan jaringan atau server.';
                 pesanStatusDiv.style.color = 'red';
             }
@@ -91,27 +98,28 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         console.error("Formulir pemesanan atau div status tidak ditemukan. Pastikan ID 'pemesananForm' dan 'pesanStatus' ada di HTML Anda.");
     }
+    // BAGIAN INI DIHAPUS KARENA DUPLIKASI:
+    /*
     document.getElementById('pemesananForm').addEventListener('submit', async function(event) {
-    event.preventDefault(); // PASTIKAN INI ADA DAN BEKERJA!
+        event.preventDefault(); // PASTIKAN INI ADA DAN BEKERJA!
 
-    // ... ambil data formulir ...
+        // ... ambil data formulir ...
 
-    try {
-        const backendUrl = '/.netlify/functions/send-booking'; // Atau URL absolut jika diperlukan
+        try {
+            const backendUrl = '/.netlify/functions/send-booking'; // Atau URL absolut jika diperlukan
 
-        const response = await fetch(backendUrl, {
-            method: 'POST', // <--- INI HARUS 'POST'
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        });
+            const response = await fetch(backendUrl, {
+                method: 'POST', // <--- INI HARUS 'POST'
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
 
-        // ... sisa logika penanganan respons ...
-    } catch (error) {
-        // ... penanganan error ...
-    }
-
-    
-});
+            // ... sisa logika penanganan respons ...
+        } catch (error) {
+            // ... penanganan error ...
+        }
+    });
+    */
 });
