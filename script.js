@@ -91,4 +91,27 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         console.error("Formulir pemesanan atau div status tidak ditemukan. Pastikan ID 'pemesananForm' dan 'pesanStatus' ada di HTML Anda.");
     }
+    document.getElementById('pemesananForm').addEventListener('submit', async function(event) {
+    event.preventDefault(); // PASTIKAN INI ADA DAN BEKERJA!
+
+    // ... ambil data formulir ...
+
+    try {
+        const backendUrl = '/.netlify/functions/send-booking'; // Atau URL absolut jika diperlukan
+
+        const response = await fetch(backendUrl, {
+            method: 'POST', // <--- INI HARUS 'POST'
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        // ... sisa logika penanganan respons ...
+    } catch (error) {
+        // ... penanganan error ...
+    }
+
+    
+});
 });
